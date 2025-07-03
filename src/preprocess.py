@@ -41,3 +41,11 @@ def preprocess_text(text):
     tokens = [word for word in tokens if word not in stop_words]
     return " ".join(tokens)
 
+logging.info("🧹 Cleaning text...")
+df['cleaned_text'] = df['text'].apply(preprocess_text)
+logging.info("✅ Text cleaned.")
+
+logging.info("🔠 Vectorizing using TF-IDF...")
+tfidf = TfidfVectorizer(max_features=5000)
+tfidf_matrix = tfidf.fit_transform(df['cleaned_text'])
+logging.info("✅ TF-IDF matrix shape: %s", tfidf_matrix.shape)
