@@ -1,6 +1,8 @@
 import streamlit as st
 from recommend import df, recommend_songs
 
+exec(open('src/preprocess.py').read())
+
 st.set_page_config(
     page_title="Music Recommender 🎵",
     page_icon="🎧",  # You can also use a path to a .ico or .png file
