@@ -22,7 +22,7 @@ To find the top 5 songs most similar to the one selected by user by using their 
 
 ---
 
-# 1. Most Common Words in Movies   
+# 1. Most Common Words in Lyrics   
 ![common](Visualization/most_common_words_in_lyrics.png)
 
 # 2. Website  
