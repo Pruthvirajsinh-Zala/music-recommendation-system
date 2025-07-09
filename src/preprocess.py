@@ -24,7 +24,7 @@ nltk.download('stopwords')
 
 
 try:
-    df = pd.read_csv("spotify_millsongdata.csv").sample(10000)
+    df = pd.read_csv("src/spotify_millsongdata.csv").sample(10000)
     logging.info("✅ Dataset loaded and sampled: %d rows", len(df))
 except Exception as e:
     logging.error("❌ Failed to load dataset: %s", str(e))
@@ -58,7 +58,7 @@ logging.info("✅ Cosine similarity matrix generated.")
 # Save everything
 joblib.dump(df, 'df_cleaned.pkl')
 joblib.dump(tfidf_matrix, 'tfidf_matrix.pkl')
-joblib.dump(cosine_sim, 'cosine_sim.pkl')
+#joblib.dump(cosine_sim, 'cosine_sim.pkl')
 logging.info("💾 Data saved to disk.")
 
 logging.info("✅ Preprocessing complete.")

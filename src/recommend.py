@@ -1,5 +1,7 @@
 import joblib
 import logging
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 logging.basicConfig(
     level=logging.INFO,
@@ -13,7 +15,10 @@ logging.basicConfig(
 logging.info("🔁 Loading data...")
 try:
     df = joblib.load('df_cleaned.pkl')
-    cosine_sim = joblib.load('cosine_sim.pkl')
+    #cosine_sim = joblib.load('cosine_sim.pkl')
+    tfidf = TfidfVectorizer(max_features=5000)
+    tfidf_matrix = tfidf.fit_transform(df['cleaned_text'])
+    cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
     logging.info("✅ Data loaded successfully.")
 except Exception as e:
     logging.error("❌ Failed to load required files: %s", str(e))
