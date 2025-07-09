@@ -1,7 +1,7 @@
 import streamlit as st
 from recommend import df, recommend_songs
 
-exec(open('src/preprocess.py').read())
+#exec(open('src/preprocess.py').read())
 
 st.set_page_config(
     page_title="Music Recommender 🎵",
